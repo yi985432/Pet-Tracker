@@ -1,0 +1,69 @@
+<!-- 关于页 -->
+<view class="page-container">
+  <!-- Logo 区域 -->
+  <view class="logo-section">
+    <view class="logo-icon">🐾</view>
+    <text class="app-name">宠物定位器</text>
+    <text class="app-version">版本 1.0.0</text>
+  </view>
+
+  <!-- 信息卡片 -->
+  <view class="info-card">
+    <view class="info-row">
+      <text class="info-label">项目名称</text>
+      <text class="info-value">4G GPS/北斗宠物定位器</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">硬件平台</text>
+      <text class="info-value">Air780EGP (LuatOS)</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">云平台</text>
+      <text class="info-value">OneNET Studio</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">定位方式</text>
+      <text class="info-value">GPS + 北斗 + LBS + WiFi</text>
+    </view>
+  </view>
+
+  <!-- 作者卡片 -->
+  <view class="info-card">
+    <view class="author-row">
+      <view class="author-avatar">J</view>
+      <view class="author-meta">
+        <text class="author-name">Jun</text>
+        <text class="author-role">作者 · 嵌入式开发</text>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="author-row">
+      <view class="author-avatar ai">🤖</view>
+      <view class="author-meta">
+        <text class="author-name">GitHub Copilot</text>
+        <text class="author-role">协作AI · 代码生成与优化</text>
+        <text class="author-model">基于 DeepSeek V4 Flash</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 技术栈卡片 -->
+  <view class="info-card">
+    <text class="section-label">技术栈</text>
+    <view class="tag-group">
+      <text class="tech-tag">LuatOS</text>
+      <text class="tech-tag">Lua 5.3</text>
+      <text class="tech-tag">MQTT</text>
+      <text class="tech-tag">OneNET</text>
+      <text class="tech-tag">HMAC-SHA1</text>
+      <text class="tech-tag">JavaScript</text>
+      <text class="tech-tag">微信小程序</text>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer">
+    <text class="footer-text">© 2026 Jun & GitHub Copilot</text>
+    <text class="footer-text">MIT License</text>
+  </view>
+</view>

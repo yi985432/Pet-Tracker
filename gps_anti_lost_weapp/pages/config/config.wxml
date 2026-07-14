@@ -1,0 +1,93 @@
+<!-- 配置页/设备编辑 -->
+<view class="page-container">
+  <!-- 设备列表（配置页首页） -->
+  <view wx:if="{{!editing}}">
+    <view class="section-title">设备管理</view>
+
+    <view class="device-item" wx:for="{{devices}}" wx:key="id" data-id="{{item.id}}">
+      <view class="device-row">
+        <view class="device-left">
+          <view class="device-avatar">{{item.avatar}}</view>
+          <view class="device-meta">
+            <text class="device-name">{{item.name}}</text>
+            <text class="device-product">{{item.productId}} / {{item.deviceName}}</text>
+          </view>
+        </view>
+        <view class="device-actions">
+          <button class="action-btn edit" bindtap="editDevice" data-id="{{item.id}}">编辑</button>
+          <button class="action-btn delete" bindtap="deleteDevice" data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="add-btn" bindtap="addDevice">
+      <text class="add-icon">+</text>
+      <text>添加新设备</text>
+    </view>
+
+    <!-- 关于 Token -->
+    <view class="help-section">
+      <view class="help-title">📖 使用说明</view>
+      <view class="help-content">
+        <text>1. Token 获取：在 OneNET 控制台 → 设备列表 → 点击设备 → Token 复制</text>
+        <text>2. 产品ID：OneNET 控制台 → 产品概况 → 产品ID</text>
+        <text>3. 设备名称：设备在 OneNET 上注册的名称</text>
+        <text>4. 支持添加多个设备，左右滑动可切换查看</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 编辑/添加表单 -->
+  <view wx:else>
+    <scroll-view scroll-y class="form-scroll">
+    <view class="form-section">
+      <view class="form-title">{{isAdd ? '添加设备' : '编辑设备'}}</view>
+
+      <view class="form-group">
+        <text class="form-label">设备名称</text>
+        <input class="input-field" placeholder="例如：我的宠物" value="{{form.name}}" bindinput="onInput" data-field="name" />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">产品ID</text>
+        <input class="input-field" placeholder="OneNET产品ID" value="{{form.productId}}" bindinput="onInput" data-field="productId" />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">设备名称(DevName)</text>
+        <input class="input-field" placeholder="OneNET设备名" value="{{form.deviceName}}" bindinput="onInput" data-field="deviceName" />
+      </view>
+
+      <view class="form-group">
+        <text class="form-label">设备密钥(DeviceSecret)</text>
+        <input class="input-field" placeholder="config.lua中的DEVICE_SECRET" value="{{form.deviceSecret}}" bindinput="onInput" data-field="deviceSecret" type="text" />
+        <text class="form-hint">填入 OneNET 控制台上的设备密钥，自动生成Token</text>
+      </view>
+
+
+
+      <view class="form-group">
+        <text class="form-label">备注</text>
+        <input class="input-field" placeholder="可选" value="{{form.remark}}" bindinput="onInput" data-field="remark" />
+      </view>
+
+      <view class="form-buttons">
+        <view class="btn-primary" bindtap="saveDevice">保存</view>
+        <view class="btn-cancel" bindtap="cancelEdit">取消</view>
+      </view>
+    </view>
+
+    <!-- 密钥提示 -->
+    <view class="token-help">
+      <view class="token-help-title">🔑 设备密钥在哪？</view>
+      <view class="token-help-content">
+        <text>在 OneNET 控制台 → 设备列表 → 点击设备 → 设备密钥</text>
+        <text class="mt-8">格式如: AbCdEfGhIjKlMnOpQrStUvWxYz1234567890=</text>
+        <text class="mt-8">小程序会自动用密钥计算 Token（HMAC-SHA1 签名）</text>
+        <text class="mt-8">无需在 OneNET 控制台手动复制 Token</text>
+      </view>
+    </view>
+    </scroll-view>
+    <view style="height:40rpx"></view>
+  </view>
+</view>

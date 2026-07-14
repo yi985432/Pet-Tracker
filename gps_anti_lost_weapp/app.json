@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/device/device",
+    "pages/history/history",
+    "pages/config/config",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0891b2",
+    "navigationBarTitleText": "宠物定位器",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f9ff",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8e8e93",
+    "selectedColor": "#0891b2",
+    "backgroundColor": "#f2f8ff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/device.png",
+        "selectedIconPath": "images/device_active.png",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/config/config",
+        "iconPath": "images/config.png",
+        "selectedIconPath": "images/config_active.png",
+        "text": "配置"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/about_active.png",
+        "text": "关于"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于在地图上显示设备位置"
+    }
+  },
+  "requiredPrivateInfos": ["chooseLocation", "getLocation"],
+  "sitemapLocation": "sitemap.json"
+}

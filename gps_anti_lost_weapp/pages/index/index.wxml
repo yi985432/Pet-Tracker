@@ -1,0 +1,83 @@
+<!-- 设备列表页 -->
+<view class="page-container">
+  <!-- 头部统计 -->
+  <view class="stats-bar">
+    <view class="stat-item">
+      <text class="stat-num">{{devices.length}}</text>
+      <text class="stat-label">设备总数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num">{{onlineCount}}</text>
+      <text class="stat-label">在线</text>
+    </view>
+    <view class="stat-item" bindtap="refreshAll">
+      <text class="stat-num refresh-icon">⟳</text>
+      <text class="stat-label">刷新</text>
+    </view>
+  </view>
+
+  <!-- 设备列表 -->
+  <view class="device-list">
+    <view
+      class="device-card"
+      wx:for="{{devices}}"
+      wx:key="id"
+      bindtap="goToDevice"
+      data-id="{{item.id}}"
+    >
+      <!-- 设备图标和状态 -->
+      <view class="device-header">
+        <view class="device-avatar">
+          <text class="avatar-text">{{item.avatar}}</text>
+          <view class="status-badge {{item.online ? 'online' : 'offline'}}"></view>
+        </view>
+        <view class="device-info">
+          <text class="device-name">{{item.name}}</text>
+          <text class="device-product">{{item.productId}}</text>
+        </view>
+        <view class="device-status">
+          <text wx:if="{{item.tokenMissing}}" class="status-text warn">未配置</text>
+          <text wx:else class="status-text {{item.online ? 'online' : 'offline'}}">
+            {{item.online ? '在线' : '离线'}}
+          </text>
+          <text class="arrow">›</text>
+        </view>
+      </view>
+
+      <!-- 设备位置信息 -->
+      <view class="device-location" wx:if="{{item.location}}">
+        <text class="location-text">{{item.locationDisplay}}</text>
+        <text class="update-time">{{item.lastUpdate || ''}}</text>
+      </view>
+      <view class="device-location" wx:else>
+        <text class="location-text grey">暂无位置数据</text>
+      </view>
+
+      <!-- 设备属性标签 -->
+      <view class="device-tags">
+        <view class="tag" wx:if="{{item.speed !== null}}">
+          {{item.speedDisplay}} km/h
+        </view>
+        <view class="tag" wx:if="{{item.locationType}}">
+          {{item.locationType}}
+        </view>
+        <view class="tag {{item.online ? 'tag-online' : 'tag-offline'}}">
+          {{item.online ? '在线' : '离线'}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加设备按钮 -->
+  <view class="add-btn" bindtap="addDevice">
+    <text class="add-icon">+</text>
+    <text>添加设备</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{devices.length === 0}}">
+    <text class="empty-icon">📱</text>
+    <text>还没有添加设备</text>
+    <text class="empty-sub">点击上方按钮添加您的宠物定位器</text>
+  </view>
+</view>

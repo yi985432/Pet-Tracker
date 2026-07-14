@@ -1,0 +1,72 @@
+/* 占位，防止内容被底栏遮挡 */
+.tab-bar-placeholder {
+  height: 160rpx;
+}
+
+/* 底栏容器 */
+.tab-bar-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* 液态玻璃底栏 */
+.tab-bar-glass {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 92%;
+  max-width: 650rpx;
+  padding: 12rpx 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 40rpx;
+  border: 1.5rpx solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 20rpx 60rpx rgba(0, 0, 0, 0.12),
+    0 4rpx 16rpx rgba(0, 0, 0, 0.06),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1rpx 0 rgba(255, 255, 255, 0.3);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+/* 单个 tab */
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 24rpx;
+  min-width: 100rpx;
+  border-radius: 20rpx;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.tab-item.active {
+  background: rgba(8, 145, 178, 0.1);
+}
+
+.tab-icon {
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 4rpx;
+}
+
+.tab-text {
+  font-size: 20rpx;
+  color: #8e8e93;
+  font-weight: 500;
+}
+
+.tab-item.active .tab-text {
+  color: #0891b2;
+  font-weight: 600;
+}

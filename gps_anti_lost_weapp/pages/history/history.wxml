@@ -1,0 +1,82 @@
+<!-- 历史数据页 -->
+<view class="page-container">
+  <!-- 属性选择器 -->
+  <view class="selector-bar">
+    <view
+      class="selector-item {{selectedProp === item.id ? 'active' : ''}}"
+      wx:for="{{propertyList}}" wx:key="id"
+      bindtap="selectProperty" data-id="{{item.id}}"
+    >
+      <text class="selector-icon">{{item.icon}}</text>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 时间范围 -->
+  <view class="time-bar">
+    <view
+      class="time-item {{selectedTime === t.value ? 'active' : ''}}"
+      wx:for="{{timeRanges}}" wx:key="value"
+      bindtap="selectTime" data-value="{{t.value}}"
+    >{{t.label}}</view>
+  </view>
+
+  <!-- 图表区域（始终渲染，loading 时覆盖 spinner） -->
+  <view class="chart-section">
+    <view class="chart-header">
+      <text class="chart-title">{{selectedPropName}} 历史数据</text>
+      <text class="chart-count" wx:if="{{dataList.length > 0}}">共 {{dataList.length}} 条</text>
+    </view>
+
+    <!-- 加载浮层 -->
+    <view class="chart-loading" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+    </view>
+
+    <!-- 位置轨迹地图 -->
+    <view wx:if="{{locationHistory.length > 0 && !loading}}" class="map-wrap">
+      <map
+        id="trackMap"
+        longitude="{{locationHistory[0].lng}}"
+        latitude="{{locationHistory[0].lat}}"
+        scale="14"
+        markers="{{trackMarkers}}"
+        polyline="{{trackPolyline}}"
+        style="width: 100%; height: 600rpx; border-radius: 12rpx;"
+      ></map>
+      <view class="track-info">共 {{locationHistory.length}} 个位置点</view>
+      <view class="data-list" wx:if="{{locationHistory.length > 0}}">
+        <view class="data-item" wx:for="{{locationHistory}}" wx:for-index="idx" wx:key="idx">
+          <text class="data-time">{{item.time}}</text>
+          <text class="data-value">{{item.lat.toFixed(4)}}, {{item.lng.toFixed(4)}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 用 Canvas 2D 绘制图表（始终渲染，loading时覆盖浮层） -->
+    <canvas
+      type="2d"
+      id="historyChart"
+      class="chart-canvas"
+      style="width: 100%; height: 500rpx;"
+    ></canvas>
+
+    <!-- 数据概览 -->
+    <view class="data-summary" wx:if="{{dataList.length > 0 && !loading}}">
+      <text class="summary-label">最新值: <text class="summary-val">{{dataList[dataList.length-1].value}} {{selectedUnit}}</text></text>
+      <text class="summary-label">平均值: <text class="summary-val">{{avgValue}} {{selectedUnit}}</text></text>
+    </view>
+
+    <!-- 数据列表 -->
+    <view class="data-list" wx:if="{{dataList.length > 0}}">
+      <view class="data-item" wx:for="{{dataList}}" wx:for-index="idx" wx:key="idx">
+        <text class="data-time">{{item.time}}</text>
+        <text class="data-value">{{item.value}} {{selectedUnit}}</text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{dataList.length === 0 && locationHistory.length === 0}}">
+      <text>暂无历史数据</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,260 @@
+.page-container {
+  padding: 12rpx 12rpx 180rpx;
+  min-height: 100vh;
+}
+
+/* 统计栏 */
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(2, 132, 199, 0.25));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28rpx;
+  padding: 28rpx 16rpx;
+  margin: 12rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.08);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100rpx;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.15);
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 6rpx;
+}
+
+.refresh-icon {
+  font-size: 44rpx;
+}
+
+/* 设备卡片 */
+.device-list {
+  margin-top: 8rpx;
+}
+
+.device-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin: 10rpx 12rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: cardIn 0.35s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.device-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.device-card:nth-child(1) { animation-delay: 0.05s; }
+.device-card:nth-child(2) { animation-delay: 0.1s; }
+.device-card:nth-child(3) { animation-delay: 0.15s; }
+
+.device-header {
+  display: flex;
+  align-items: center;
+}
+
+.device-avatar {
+  position: relative;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0891b2, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  box-shadow: 0 4rpx 12rpx rgba(8, 145, 178, 0.3);
+}
+
+.avatar-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.status-badge {
+  position: absolute;
+  bottom: 2rpx;
+  right: 2rpx;
+  width: 22rpx;
+  height: 22rpx;
+  border-radius: 50%;
+  border: 3rpx solid #ffffff;
+  box-shadow: 0 1rpx 4rpx rgba(0, 0, 0, 0.15);
+}
+
+.status-badge.online { background-color: #22c55e; }
+.status-badge.offline { background-color: #9ca3af; }
+
+.device-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.device-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.85);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.device-product {
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, 0.45);
+  display: block;
+  margin-top: 4rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.device-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.status-text {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.status-text.online { color: #059669; }
+.status-text.offline { color: rgba(0, 0, 0, 0.3); }
+.status-text.warn { color: #d97706; }
+
+.arrow {
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 0.2);
+  margin-top: 4rpx;
+}
+
+.device-location {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f3f4f6;
+}
+
+.location-text {
+  font-size: 24rpx;
+  color: #4b5563;
+}
+
+.location-text.grey {
+  color: #d1d5db;
+}
+
+.update-time {
+  font-size: 20rpx;
+  color: #9ca3af;
+  margin-left: 16rpx;
+}
+
+.device-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+  margin-top: 12rpx;
+}
+
+.tag {
+  font-size: 20rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 20rpx;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(0, 0, 0, 0.6);
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.tag-online {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+.tag-offline {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.35);
+}
+
+/* 添加按钮 */
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  margin: 24rpx 12rpx 32rpx;
+  padding: 28rpx;
+  border: 2rpx dashed #d1d5db;
+  border-radius: 20rpx;
+  color: #6b7280;
+  font-size: 28rpx;
+  transition: all 0.2s;
+  animation: fadeUp 0.3s ease 0.3s both;
+}
+
+.add-btn:active {
+  background: #f9fafb;
+  transform: scale(0.98);
+}
+
+.add-icon {
+  font-size: 36rpx;
+  font-weight: 300;
+}
+
+.add-btn:active {
+  background: #f9fafb;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 40rpx;
+  color: #9ca3af;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-sub {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
