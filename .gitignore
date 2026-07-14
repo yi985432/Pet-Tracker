@@ -1,3 +1,6 @@
 project.private.config.json
 .DS_Store
 *.log
+
+# 微信小程序（闭源，仅本地开发）
+gps_anti_lost_weapp/
