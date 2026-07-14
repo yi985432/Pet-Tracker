@@ -61,6 +61,18 @@
     </view>
   </view>
 
+  <!-- 仓库地址 -->
+  <view class="info-card repo-card" bindtap="copyRepo">
+    <view class="repo-row">
+      <text class="repo-icon">📦</text>
+      <view class="repo-meta">
+        <text class="repo-label">GitHub 仓库</text>
+        <text class="repo-url">github.com/yi985432/Pet-Tracker</text>
+      </view>
+      <text class="copy-hint">复制</text>
+    </view>
+  </view>
+
   <!-- 底部 -->
   <view class="footer">
     <text class="footer-text">© 2026 Jun & GitHub Copilot</text>

@@ -161,6 +161,57 @@
   border: 1rpx solid rgba(8, 145, 178, 0.15);
 }
 
+/* 仓库地址 */
+.repo-card {
+  animation-delay: 0.35s;
+}
+
+.repo-card:active {
+  transform: scale(0.98);
+}
+
+.repo-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.repo-icon {
+  font-size: 48rpx;
+  flex-shrink: 0;
+}
+
+.repo-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.repo-label {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+.repo-url {
+  font-size: 24rpx;
+  color: #0891b2;
+  display: block;
+  margin-top: 4rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copy-hint {
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  background: rgba(0, 0, 0, 0.04);
+}
+
 /* 底部 */
 .footer {
   padding: 40rpx 0 60rpx;
