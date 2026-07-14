@@ -11,7 +11,7 @@
       data-index="{{index}}"
       bindtap="switchTab"
     >
-      <image class="tab-icon" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" />
+      <image class="tab-icon" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" mode="aspectFit" />
       <text class="tab-text">{{item.text}}</text>
     </view>
   </view>
