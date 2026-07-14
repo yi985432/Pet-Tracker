@@ -1,6 +1,6 @@
 /* 占位，防止内容被底栏遮挡 */
 .tab-bar-placeholder {
-  height: 160rpx;
+  height: 200rpx;
 }
 
 /* 底栏容器 */
@@ -8,7 +8,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 20rpx;
+  bottom: 80rpx;
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -21,12 +21,12 @@
   justify-content: space-around;
   align-items: center;
   width: 92%;
-  max-width: 650rpx;
-  padding: 12rpx 0;
+  max-width: 680rpx;
+  padding: 16rpx 0;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-  border-radius: 40rpx;
+  border-radius: 44rpx;
   border: 1.5rpx solid rgba(255, 255, 255, 0.6);
   box-shadow:
     0 20rpx 60rpx rgba(0, 0, 0, 0.12),
@@ -43,9 +43,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8rpx 24rpx;
-  min-width: 100rpx;
-  border-radius: 20rpx;
+  padding: 12rpx 32rpx;
+  min-width: 110rpx;
+  border-radius: 22rpx;
   transition: all 0.2s;
   position: relative;
 }
@@ -55,13 +55,13 @@
 }
 
 .tab-icon {
-  width: 44rpx;
-  height: 44rpx;
-  margin-bottom: 4rpx;
+  width: 52rpx;
+  height: 52rpx;
+  margin-bottom: 6rpx;
 }
 
 .tab-text {
-  font-size: 20rpx;
+  font-size: 22rpx;
   color: #8e8e93;
   font-weight: 500;
 }
